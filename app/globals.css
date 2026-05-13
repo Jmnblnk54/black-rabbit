@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0e0e0f;
+  --fg: #f4f1eb;
+  --muted: #6f6a62;
+  --surface: #17171a;
+  --hairline: #2a2a2d;
+  --accent: #b23a2a;
+  --bone: #f4f1eb;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgba(178, 58, 42, 0.7);
+  color: var(--bone);
+}
+
+/* Slim, themed scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2d transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Container helper */
+.container-x {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Hero letter fade-in — used only on hero h1 with .hero-letters */
+.hero-letters > span {
+  opacity: 0;
+  display: inline-block;
+  animation: heroLetter 0.7s ease forwards;
+}
+
+@keyframes heroLetter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
